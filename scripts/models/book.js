@@ -24,7 +24,13 @@ Book.all = [];
 Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
 
 Book.fetchAll = callback =>
-$.get(`${_API_URL_}/api/v1/books`)
+$.get(`${_API_URL_}/api/v1/books/:id`)
+.then(Book.loadAll)
+.then(callback)
+.catch(errorCallback);
+
+Book.fetchOne = callback =>
+$.get(`${_API_URL_}/api/v1/books/:id`)
 .then(Book.loadAll)
 .then(callback)
 .catch(errorCallback);
@@ -32,11 +38,4 @@ $.get(`${_API_URL_}/api/v1/books`)
 module.Book = Book;
 
 })(app);
-=======
-'use strict';
-
-var app = {};
-
-// var __API_URL__ = 'http://localhost:3000';
-var __API_URL__ = 'https://rm-mf-booklist.herokuapp.com';
 
