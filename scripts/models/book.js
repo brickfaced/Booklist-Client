@@ -32,3 +32,11 @@ $.get(`${_API_URL_}/api/v1/books`)
 module.Book = Book;
 
 })(app);
+=======
+'use strict';
+
+var app = {};
+
+// var __API_URL__ = 'http://localhost:3000';
+var __API_URL__ = 'https://rm-mf-booklist.herokuapp.com';
+
