@@ -27,13 +27,14 @@ Book.fetchAll = callback =>
 $.get(`${_API_URL_}/api/v1/books/:id`)
 .then(Book.loadAll)
 .then(callback)
-.catch(errorCallback);
+.catch(errorCallback)
+.then(() => page('/'));
 
 Book.fetchOne = callback =>
 $.get(`${_API_URL_}/api/v1/books/:id`)
-.then(Book.loadAll)
 .then(callback)
-.catch(errorCallback);
+.catch(errorCallback)
+.then(() => page('/'));
 
 module.Book = Book;
 
