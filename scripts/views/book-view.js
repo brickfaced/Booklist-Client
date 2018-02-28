@@ -3,15 +3,15 @@
 var app = app || {};
 
 (function(module) {
-const bookview = {};
+const bookView = {};
 
-bookview.initIndexPage = function() {
+bookView.initIndexPage = function() {
     $('.container').hide();
     $('.book-view').show();
     module.Book.all.map(book => $('#book-list').append(book.toHtml()));
 }
 
-module.bookview = bookview;
+module.bookView = bookView;
 })(app)
 
 $(function() {

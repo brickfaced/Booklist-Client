@@ -16,7 +16,7 @@
 </script>
 
 <script type="text/x-handlebars-template" id="book-list-template">
-<li class="book-items" data-bookid={{book_it}}>
+<li class="book-items" data-bookid={{book_id}}>
   <div class="book-container">
     <img src={{image_url}}>
     <div class="book-overlay">
@@ -30,12 +30,16 @@
 <header>
   <div class="header-content">
     <h1>Book App</h1>
-    <ul>
-      <li>
-        <!-- redirect point -->
-        <a href="/">Home</a>
-      </li>
-    </ul>
+    <nav class="main-nav">
+      <div id="burgerMenu">
+      <ul>
+        <li>
+          <!-- redirect point -->
+          <a href="/">Home</a>
+        </li>
+      </ul>
+    </div>
+    </nav>
   </div>
 </header>
 <main>
