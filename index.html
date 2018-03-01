@@ -9,7 +9,7 @@
   <link rel ="stylesheet" href="styles/base.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/modules.css">
-</head>
+
 <script type="text/x-handlebars-template" id="error-template">
 <h3>ERROR</h3>
 <p>{{status}}; {{statusText}}</p>
@@ -20,12 +20,24 @@
   <div class="book-container">
     <img src={{image_url}}>
     <div class="book-overlay">
-      <h3>{{title}}</h3>
+        <h3>{{title}}</h3>
       <p>{{author}}</p>
+      <p class="details-button"><a href="/books/{{book_id}}">View Details</a></p>
     </div>
   </div>
 </li>
 </script>
+
+<script type="text/x-handlebars-template" id="book-detail-template">
+  <div class="book-container">
+    <p>{{author}}</p>
+    <p>{{isbn}}</p>
+    <img src={{image_url}}>
+    <p>{{description}}</p>
+  </div>
+</script>
+</head>
+
 <body>
 <header>
   <div class="header-content">
@@ -43,21 +55,22 @@
   </div>
 </header>
 <main>
-  <section class="error-view container">
+  <section class="error-view-container">
     <h2 class="view-title">ERROR</h2>
     <section id="error-message"></section>
   </section>
-  <section class="book-view container">
+  <section class="book-view">
     <h2 class="view-title">My Books</h2>
     <section class="book-list">
       <ul id="book-list"></ul>
     </section>
-    <section class="book=details">
-      <p class="view-details"></p>
+    <section class="book-details">
+      <p class="view-details">
+      </p>
     </section>
   </section>
 </main>
-  <footer>
+  <!-- <footer>
     <aside class="social-links">
       <ul>
         <li><i class="icon-mail1"><a href=""></a></i></li>
@@ -66,7 +79,7 @@
         <li><i class="icon-linkedin2"><a href=""></a></i></li>
       </ul>
     </aside>
-  </footer>
+  </footer> -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
