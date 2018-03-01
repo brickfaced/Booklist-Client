@@ -24,17 +24,17 @@ Book.all = [];
 Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
 
 Book.fetchAll = callback =>
-$.get(`${_API_URL_}/api/v1/books/:id`)
+$.get(`${_API_URL_}/api/v1/books`)
 .then(Book.loadAll)
 .then(callback)
 .catch(errorCallback)
 .then(() => page('/'));
 
-Book.fetchOne = callback =>
-$.get(`${_API_URL_}/api/v1/books/:id`)
-.then(callback)
-.catch(errorCallback)
-.then(() => page('/'));
+// Book.fetchOne = callback =>
+// $.get(`${_API_URL_}/api/v1/books/:id`)
+// .then(callback)
+// .catch(errorCallback)
+// .then(() => page('/'));
 
 module.Book = Book;
 
