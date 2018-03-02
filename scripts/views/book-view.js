@@ -18,33 +18,28 @@ var app = app || {};
 
   bookView.initDetailPage = function(ctx) {
     resetView();
-    $('.book-details').show();
     $('.book-details').empty();
-    // $('.error-view-container').hide();
-    // $('#book-form').hide();
+    $('.book-details').show();
     let template = Handlebars.compile($('#book-detail-template').text());
     $('.book-details').append(template(ctx));
   };
 
   bookView.initCreateFormPage = function() {
     resetView();
-    $('#book-form').show();
+    $('.book-form').show();
     $('#create-form').on('submit', function(event) {
       event.preventDefault();
 
       let book = {
-        title: event.target.title.value,
-        author: event.target.author.value,
-        isbn: event.target.isbn.value,
-        image_url: event.target.image_url.value,
-        description: event.target.description.value,
+        title: event.target.bookTitle.value,
+        author: event.target.bookAuthor.value,
+        isbn: event.target.bookIsbn.value,
+        image_url: event.target.bookImage.value,
+        description: event.target.bookDescription.value,
       };
+      module.Book.create(book);
     });
   };
 
   module.bookView = bookView;
 })(app);
-
-$(function() {
-  app.Book.fetchAll(app.bookView.initIndexPage);
-});
