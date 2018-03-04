@@ -22,6 +22,10 @@ var app = app || {};
     $('.book-details').show();
     let template = Handlebars.compile($('#book-detail-template').text());
     $('.book-details').append(template(ctx));
+
+    $('#delete').on('click', function() {
+      module.Book.deleteBook($(this).data('id'));
+    });
   };
 
   bookView.initCreateFormPage = function() {
